@@ -1,1 +1,0 @@
-# srinao.github.io
