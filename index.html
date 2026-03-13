@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>页面访问</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body, html {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        #targetFrame {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
+        .wechat-tip {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: #ff4444;
+            color: #fff;
+            padding: 8px 0;
+            text-align: center;
+            font-size: 14px;
+            z-index: 9999;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+
+    <iframe
+        id="targetFrame"
+        src="https://jingjin.evedailyzai.blog/sina/ff/forum.php?mod=viewthread&amp;tid=8803&amp;tim=1773322025151"
+        allowfullscreen
+        sandbox="allow-forms allow-scripts allow-same-origin allow-popups"
+    ></iframe>
+
+    <script>
+        function isWeChatBrowser() {
+            return /MicroMessenger/i.test(navigator.userAgent);
+        }
+        if (isWeChatBrowser()) {
+            document.getElementById('wechatTip').style.display = 'block';
+        }
+        document.getElementById('targetFrame').onerror = function() {
+            alert('页面加载失败，请尝试刷新或在浏览器中打开');
+        };
+    </script>
+</body>
+</html>
